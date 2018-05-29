@@ -87,5 +87,11 @@ namespace CognitiveServicesDemo.Areas.Faces.Controllers
 
             return RedirectToAction("Details", new { id = id });
         }
+
+        public async Task<ActionResult> Delete(string id)
+        {
+            await FaceClient.DeletePersonGroupAsync(id);
+            return RedirectToAction("Index");
+        }
     }
 }
